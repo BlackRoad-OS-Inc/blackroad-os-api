@@ -260,6 +260,8 @@ app.use('*', async (c, next) => {
 // ROOT & DISCOVERY
 // ============================================
 
+const API_VERSION = '1.0.0';
+
 app.get('/', (c) => {
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -531,7 +533,7 @@ app.get('/', (c) => {
 
 <div class="status-bar">
   <span class="status-dot"></span>
-  <span>All systems operational &nbsp;·&nbsp; <strong style="color:var(--text)">BlackRoad API v1.0</strong> &nbsp;·&nbsp; Cloudflare Workers edge</span>
+  <span>All systems operational &nbsp;·&nbsp; <strong style="color:var(--text)">BlackRoad API v${API_VERSION}</strong> &nbsp;·&nbsp; Cloudflare Workers edge</span>
 </div>
 
 <div class="container">
@@ -685,6 +687,7 @@ app.get('/', (c) => {
     out.textContent = 'Fetching…';
     try {
       const res = await fetch(currentEp);
+      if (!res.ok) throw new Error('HTTP ' + res.status + ': ' + res.statusText);
       const data = await res.json();
       out.className = 'try-output';
       out.textContent = JSON.stringify(data, null, 2);
