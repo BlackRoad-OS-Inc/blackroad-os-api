@@ -1,5 +1,13 @@
 # blackroad-os-api
 
+> BlackRoad API Gateway - Authentication, rate limiting, multi-tenant routing
+
+Part of the [BlackRoad OS](https://blackroad.io) ecosystem — [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+
+---
+
+# blackroad-os-api
+
 **Proprietary Software — [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc)**
 
 ---
